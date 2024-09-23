@@ -1,13 +1,13 @@
 # Setup docker-compose service with SSL self signed certificate
 Setting up docker compose to running with ssl self signed certificate for an angular application.
 
-#### Create .docker directories:
+### Create `.docker` directories:
 
     mkdir .docker        
     mkdir .docker/nginx
     mkdir .docker/certs
 
-#### Edit etc/hosts, add domains and save:
+### Edit `etc/hosts`, add hosts and save:
 
     ##
     # Host Database
@@ -21,7 +21,7 @@ Setting up docker compose to running with ssl self signed certificate for an ang
     127.0.0.1       example.com
     127.0.0.1       demo.example.com
 
-#### Edit etc/ssl/openssl.conf, add domains under [  alternate_names ] and save:
+### Edit `etc/ssl/openssl.conf`, add domains under `[  alternate_names ]` and save:
 
     [ req ]
     #default_bits                   = 2048
@@ -72,15 +72,15 @@ Setting up docker compose to running with ssl self signed certificate for an ang
     challengePassword_min           = 4
     challengePassword_max           = 20
 
-#### Generate certificate:
+### Generate certificate:
 
     openssl req -config /etc/ssl/openssl.cnf -new -x509 -sha256 -newkey rsa:4096 -nodes -days 365 -keyout ./.docker/certs/example-key.pem -out ./.docker/certs/example.com.pem
     
   Type required information during the flow.
 
-#### Add certificate to chain:
+### Add certificate to chain:
 
-##### MAC OS:
+#### MAC OS:
   - Search for `Keychain Access` and open it
   - Select `System` from left side `System Keychains`
   - Click on `Certificates` tab
@@ -90,7 +90,7 @@ Setting up docker compose to running with ssl self signed certificate for an ang
   - Change option to: When using this certificate: `Always Trust`
   - Close cert dialog
 
-#### Create `.docker/nginx/nginx.conf` file:
+### Create `.docker/nginx/nginx.conf` file:
 
     events { worker_connections 1024; }
 
@@ -143,7 +143,7 @@ Setting up docker compose to running with ssl self signed certificate for an ang
     }
             
 
-#### Create docker compose file: `docker-compose.yaml` 
+### Create docker compose file: `docker-compose.yaml` 
     services:
       eample:
         container_name: example
