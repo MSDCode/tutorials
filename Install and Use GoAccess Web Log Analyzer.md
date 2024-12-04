@@ -6,7 +6,7 @@ It provides fast and valuable HTTP statistics for system administrators that req
 ### Prerequisites
 You may need to install build tools like gcc, autoconf, gettext, autopoint etc for compiling/building software from source. e.g., base-devel, build-essential, "Development Tools".
 
-    sudo apt install gcc autoconf gettext autopoint libmaxminddb0 libmaxminddb-dev mmdb-bin libncursesw5-devinstall libncursesw5-dev libgeoip-dev libtokyocabinet-dev build-essential
+    sudo apt install gcc autoconf gettext autopoint libmaxminddb0 libmaxminddb-dev mmdb-bin libncursesw5-dev libncursesw5-dev libgeoip-dev libtokyocabinet-dev build-essential
 
 ### Installation
 Installing GoAccess is pretty easy. Just download `(make sure to download the last version)`, extract and compile it with:
